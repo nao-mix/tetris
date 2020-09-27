@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"></link>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <title>MY TETRIS JS</title>
+</head>
+
+<body>
+    <p id="titleTetris"><span style="color:red">T</span><span style="color:yellow">E</span><span style="color:orange">T</span><span style="color:cyan">Я</span><span style="color:lime">I</span><span style="color:deeppink">S</span>
+    </p>
+    <div id="container-all">
+        <div id="container-main">
+            <canvas id="tetris" width="200" height="400"></canvas>
+        </div>
+
+        <div id="container-sub">
+            <p id="description">PLAY TETRIS ?</p>
+            <button id="start-btn">PRESS START</button>
+            <canvas id="sub" width="80" height="80"></canvas>
+            
+            <p> LEVEL : <span id="level">0</span></p>
+            <p> SCORE : <span id="score">0</span></p>
+            <p id="bonus-text"></p>
+        </div>
+    </div>  
+
+    <script src="tetrominos.js"></script>
+    <script src="tetris.js"></script>
+</body>
+</html>
