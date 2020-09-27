@@ -1,4 +1,4 @@
-# My TETRIS JS
+# MY TETRIS JS
 
 ### Link to the game: [https://aufderreise.com/tetris/](https://aufderreise.com/tetris/)
 
@@ -8,7 +8,7 @@
 
 Tetris ist ein beliebtes Puzzle-Game, das im 1980er Jahren in Russland geboren ist. <br>
 Ich bin selbst eine Tetris-Fan. In meiner Kindheit habe ich GAMEBOY-Tetris so viel gespielt.
-Also, als ich ein Spiel mit JavaScript entwickeln wollte, hat mir Tetris eingefallen.<br><br>
+Also, als ich ein Spiel mit JavaScript entwickeln wollte, hat mir Tetris eingefallen.<br>
 
 Viele Entwickler haben mit verschiedenen Arten die Tetris-Kopien entwickelt und bekannt gemacht. Von solchen Entwickrungen habe ich gute Tipps bekommen und dann mein originales Tetris entwickelt. <br>
 
