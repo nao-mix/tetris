@@ -19,6 +19,7 @@ let speed = 1000;   // entry speed (ms)
 const bonus = 10;
 
 let start = false;
+let gameOver = false;
 let pauseDrop = false;  // for pause
 
 // main canvas - row, column, squaresize 20, board(color)
@@ -38,7 +39,43 @@ const deleteColor = 'red';
 const backColor = 'darkslategray';
 const strokeColor = 'black';
 
-//-------------------------------------
+// tetromino pieces (for instance)
+let gamePiece = {};
+let nextPiece = {};
+
+//---------------- SET UP ---------------------
+document.addEventListener('DOMContentLoaded', setup);
+
+//inicial setup
+function setup(event){
+
+    // create a white(empty) board-color array (color array)
+    for(let r=0; r<row; r++){       //y
+        board[r] = [];
+        for(let c=0; c<col; c++){   //x
+            board[r][c] = vacant;
+        }
+    }
+
+    // create a sub board (with background color)
+    for(let r=0; r<rowSub; r++){       //y
+        boardSub[r] = [];
+        for(let c=0; c<colSub; c++){   //x
+            boardSub[r][c] = backColor;
+        }
+    }
+
+    // before game start, create game board, all square are vacant color (white) 
+    drawBoard();
+    // create sub board, with background color
+    drawBoardSub();
+
+    // create randomPiece (game piece and next piece)
+    gamePiece = randomPiece();
+    nextPiece = randomPiece();
+}
+
+//---------------- GAME START ---------------------
 // click start button - Game Start
 startBtn.addEventListener('click', () => {
 
@@ -51,7 +88,6 @@ startBtn.addEventListener('click', () => {
     }
 });
 
-
 //--------------- BOARD ----------------------
 // draw one square in main canvas
 function drawSquare(x, y, color){
@@ -61,6 +97,7 @@ function drawSquare(x, y, color){
     ctx.strokeStyle = strokeColor;
     ctx.strokeRect(x*sq, y*sq, sq, sq);
 }
+
 // draw one sub square, with backgroundcolor
 function drawSquareSub(x, y, color){
     ctxSub.fillStyle = color;
@@ -68,21 +105,6 @@ function drawSquareSub(x, y, color){
     
     ctxSub.strokeStyle = backColor;
     ctxSub.strokeRect(x*sq, y*sq, sq, sq);
-}
-
-// create a white(empty) board-color array (color array)
-for(let r=0; r<row; r++){       //y
-    board[r] = [];
-    for(let c=0; c<col; c++){   //x
-        board[r][c] = vacant;
-    }
-}
-// create a sub board (with background color)
-for(let r=0; r<rowSub; r++){       //y
-    boardSub[r] = [];
-    for(let c=0; c<colSub; c++){   //x
-        boardSub[r][c] = backColor;
-    }
 }
 
 // draw/update a board (all squares) 
@@ -93,8 +115,6 @@ function drawBoard(){
         }
     }
 }
-// before game start, create game board, all square are vacant color (white) 
-drawBoard();
 
 // draw/update a sub board
 function drawBoardSub(){
@@ -104,8 +124,6 @@ function drawBoardSub(){
         }
     }
 }
-// create sub board, with background color
-drawBoardSub();
 
 
 //---------------- PIECES ---------------------
@@ -143,9 +161,6 @@ function randomPiece(){
     let r = Math.floor(Math.random() * tPieces.length);
     return new Piece(tPieces[r][0], tPieces[r][1]);
 }
-// create randomPiece (game piece and next piece)
-let gamePiece = randomPiece();
-let nextPiece = randomPiece();
 
 // nextpiece update
 function updateNextpiece(){
@@ -462,7 +477,6 @@ function control(event){
 
 // drop down the piece every second (1000ms) (animation)
 let dropStart = Date.now();
-let gameOver = false;
 
 function drop(){
     let now = Date.now();
