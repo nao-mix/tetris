@@ -1,6 +1,6 @@
 # MY TETRIS JS
 
-### Link to the game: [https://aufderreise.com/tetris/](https://aufderreise.com/tetris/)
+### Link to the game: [https://stackblitz.com/edit/naomix-tetris](https://stackblitz.com/edit/naomix-tetris)
 
 ![Tetris](./images/tetrisImg.jpg)
 
